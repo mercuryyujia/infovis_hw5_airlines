@@ -1,5 +1,5 @@
 import React from "react";
-// import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import { csv, json } from "d3";
 import { Row, Col, Container } from "react-bootstrap";
 
