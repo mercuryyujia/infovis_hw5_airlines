@@ -5,7 +5,7 @@ import { count } from "d3";
 
 
 function AirportMap(props){
-    const {width, height, countries, airports, routes, selectedAirlineID} = props;
+    const {width, height, countries, airports, routes, selectedAirline} = props;
     //TODO: 
     // 1.Define a projection which is geoMercator; 
     // set .scale(97), and .translate([width/2, height/2+20]); 
@@ -13,7 +13,7 @@ function AirportMap(props){
     // 3. Plot the world map; remember to use countries.features.map(); (Note: stroke is "#ccc", and color is "#eee");
     // 4. Plot the airports; remember to use routes.map(); (Note: radius is 1; color is "#2a5599"); 
 
-    let projection = geoMercator() //TODO: define a projection of Mercator.
+    const projection = geoMercator() //TODO: define a projection of Mercator.
     .scale(97)
     .translate([width / 2, height / 2 + 20]);
     
@@ -28,11 +28,11 @@ function AirportMap(props){
     // Render the airports
     const airportCircles = airports.map((airport, index) => (
         <circle
-        key={index}
-        cx={projection([airport.longitude, airport.latitude])[0]}
-        cy={projection([airport.longitude, airport.latitude])[1]}
-        r={1}
-        fill="#2a5599"
+            key={index}
+            cx={projection([airport.Longitude, airport.Latitude])[0]}
+            cy={projection([airport.Longitude, airport.Latitude])[1]}
+            r={1}
+            fill="#2a5599"
         />
     ));
 
@@ -40,7 +40,7 @@ function AirportMap(props){
         <g>
         {countryPaths}
         {airportCircles}
-        <Routes projection={projection} routes={routes} selectedAirlineID={selectedAirlineID} />
+        <Routes projection={projection} routes={routes} selectedAirline={selectedAirline} />
         </g>
     );
     }

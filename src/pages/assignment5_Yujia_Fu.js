@@ -1,7 +1,7 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap/dist/css/bootstrap.css'
 import { csv, json } from "d3";
-import { Row, Col, Container } from "react-bootstrap";、
+import { Row, Col, Container } from "react-bootstrap";
 
 import { groupByAirline, groupByAirport } from "../components/assignment5/utils";
 import { AirportMap }  from "../components/assignment5/airportMap";
@@ -59,29 +59,29 @@ function AirlineRoutes(){
     return <Container >
         <Row className={"justify-content-md-left"}>
             <Col lg={10} >
-                <h1 className={styles.h1Style}>Airlines Routes</h1> 
+            <h1 className={styles.h1Style}> Airlines Routes </h1>
             </Col>
         </Row>  
         <Row className={"justify-content-md-left"}>
-            <Col lg={4}>
-                <h2>Airlines</h2>
-                <svg id={"barchart"} width={barchart_width} height={barchart_height} className={styles.svgStyle}>
-                    <BarChart offsetX={barchart_margin.left} offsetY={barchart_margin.top} 
-                        height={barchart_inner_height} width={barchart_inner_width} data={airlines}
-                        selectedAirline={selectedAirline} setSelectedAirline={setSelectedAirline}
-                    />
-                </svg>
-            </Col>
-            <Col lg={4} >
-                <h2>Airports</h2>
-                <svg id={"map"} width={map_width} height={map_height} className={styles.svgStyle}>
-                    <AirportMap width={map_width} height={map_height} 
-                        countries={map} airports={airports} routes={routes}
-                        selectedAirline={selectedAirline}
-                    />
-                </svg>
+        <Col lg={4}>
+            <h2>Airlines</h2>
+            <svg className={styles.svgStyle} id={"barchart"} width={barchart_width} height={barchart_height}>
+                <BarChart offsetX={barchart_margin.left} offsetY={barchart_margin.top} 
+                    height={barchart_inner_height} width={barchart_inner_width} data={airlines}
+                    selectedAirline={selectedAirline} setSelectedAirline={setSelectedAirline}
+                />
+            </svg>
+        </Col>
+        <Col lg={4} >
+            <h2>Airports</h2>
+            <svg className={styles.svgStyle} id={"map"} width={map_width} height={map_height}>
+                <AirportMap width={map_width} height={map_height} 
+                    countries={map} airports={airports} routes={routes}
+                    selectedAirline={selectedAirline}
+                />
+            </svg>
 
-            </Col>
+        </Col>
         </Row>
     </Container>
 }
